@@ -92,10 +92,10 @@ class Upload extends Logger {
     // process the form
     def process() {
 
-      (assetFile.is, product.is.part_number.is) match {
+      (assetFile.is, product.is.name.is) match {
         case (Empty, _) => S.error("You forgot to choose a file to upload")
-        case (_, "") => S.error("You forgot to enter a part number")
-        case (asset, partNumber) => {
+        case (_, "") => S.error("You forgot to enter a name")
+        case (asset, name) => {
           info("The RequestVar content is: %s".format(assetFile.is))
           assetFile.is.map{ info("About to start the file upload"); file => saveFile(file)}
           info("Done")
@@ -105,18 +105,18 @@ class Upload extends Logger {
     }
 
 
-    "name=part_number" #> SHtml.onSubmit(product.is.part_number.set(_)) &
+    "name=name" #> SHtml.onSubmit(product.is.name.set(_)) &
     uploadAss &
     "type=submit" #> SHtml.onSubmitUnit(process)
   }
 
 
-  def uploadAss: CssBindFunc = {
+  private def uploadAss: CssBindFunc = {
     /**
      * If it is a GET request, show the upload field,
      * else show a link to the image we just uploaded.
      */
-    (S.get_?, assetFile.is, product.is.part_number.is) match {
+    (S.get_?, assetFile.is, product.is.name.is) match {
       case (true, _, _)  => "name=digital_asset" #> SHtml.fileUpload(s => assetFile(Full(s)))
       case (_, Empty, _) => "name=digital_asset" #> SHtml.fileUpload(s => assetFile(Full(s)))
       case (_, _, "")    => "name=digital_asset" #> SHtml.fileUpload(s => assetFile(Full(s)))

@@ -14,23 +14,20 @@
 
             -->
 
-            <form class="lift:Upload?form=post;multipart=true">
+            <form class="lift:MegaUpload?form=post;multipart=true">
               <fieldset class="alt">
-                <legend><span>Asset</span></legend>
+                <legend><span>Assets</span></legend>
                 <ol>
-                  <li><label for="name">Name</label>
-                    <input id="name" name="name" class="text" type="text" />
-                  </li>
-                  <li><label for="digital_asset">Digital Asset</label>
-                    <input id="digital_asset" name="digital_asset" class="text" type="text" />
+                  <li><label for="links_blob">Links</label>
+                      <textarea id="links_blob" name="links_blob" cols="200" rows="10">
+                          (Paste a list of URLs here)
+                      </textarea>
                   </li>
                 </ol>
               </fieldset>
               <fieldset class="submit">
-                <input type="submit" value="Create" class="submit">
+                <input type="submit" value="Find" class="submit">
               </fieldset>
-
-
 
             </form>
             

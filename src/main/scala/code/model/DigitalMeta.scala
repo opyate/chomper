@@ -24,10 +24,10 @@ object DigitalMeta extends DigitalMeta with LongKeyedMetaMapper[DigitalMeta] {
 
   def getItem(id: Int): List[(Long, String)]= {
     DigitalMeta.findAllFields(Seq[SelectableField] (
-          DigitalMeta.id, DigitalMeta.part_number),
+          DigitalMeta.id, DigitalMeta.name),
           By(DigitalMeta.id, id)
           ).map{
-            row => println(row);(row.id.is, row.part_number.is )
+            row => println(row);(row.id.is, row.name.is )
           }
   }
 
@@ -49,7 +49,7 @@ class DigitalMeta extends LongKeyedMapper[DigitalMeta] with OneToMany[Long, Digi
   def primaryKeyField = id
 
   object id extends MappedLongIndex(this)
-  object part_number extends MappedString(this, 250) {
+  object name extends MappedString(this, 250) {
     override def dbIndexed_? = true
     override def setFilter = trim _ :: toUpper _ :: super.setFilter
   }

@@ -34,7 +34,7 @@ class Boot {
     // Use Lift's Mapper ORM to populate the database
     // you don't need to use Mapper to use Lift... use
     // any ORM you want
-    Schemifier.schemify(true, Schemifier.infoF _, User, DigitalAsset, DigitalMeta)
+    Schemifier.schemify(true, Schemifier.infoF _, User, DigitalAsset, DigitalMeta, Links)
 
     // where to search snippet
     LiftRules.addToPackages("com.opyate.code")
@@ -49,7 +49,8 @@ class Boot {
       // /static path to be visible
       Menu(Loc("Static", Link(List("static"), true, "/static/index"), 
 	       "Static Content")),
-      Menu.i("Chomper") / "uploader"
+      Menu.i("ChomperOne") / "uploader",
+      Menu.i("ChomperMany") / "megauploader"
       )
 
     def sitemapMutators = User.sitemapMutator
