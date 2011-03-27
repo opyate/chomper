@@ -16,3 +16,4 @@ project/boot/
 *.swp
 solr-home.tgz
 solr-home/tmp
+src/main/webapp/assets/
