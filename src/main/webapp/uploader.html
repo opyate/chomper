@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta content="text/html; charset=UTF-8" http-equiv="content-type"/>
+        <title>Chomper</title>
+    </head>
+    <body class="lift:content_id=main">
+        <div id="main" class="lift:surround?with=default;at=content">
+            <h2>Add a new remote resource</h2>
+
+            <!--
+            Submitting stuff using the new CSS Selector Transforms:
+            https://groups.google.com/forum/?fromgroups#!searchin/liftweb/submit$20css|sort:date/liftweb/XesVn3TgD90/fY9VhsJDNLEJ
+
+            -->
+
+            <form class="lift:Upload?form=post;multipart=true">
+              <fieldset class="alt">
+                <legend><span>Images</span></legend>
+                <ol>
+                  <li><label for="part_number">Part Number</label>
+                    <input id="part_number" name="part_number" class="text" type="text" />
+                  </li>
+                  <li><label for="digital_asset">Digital Asset</label>
+                    <input id="digital_asset" name="digital_asset" class="text" type="text" />
+                  </li>
+                </ol>
+              </fieldset>
+              <fieldset class="submit">
+                <input type="submit" value="Create" class="submit">
+              </fieldset>
+
+
+
+            </form>
+            
+        </div>
+    </body>
+</html>
+
